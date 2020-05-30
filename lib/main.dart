@@ -10,6 +10,15 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$soundNumber.wav');
   }
 
+  Expanded buildKey({Color buttonColor, int soundNumber}) {
+    return Expanded(
+        child: FlatButton(
+            color: buttonColor,
+            onPressed: () {
+              playSound(soundNumber);
+            }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,55 +28,13 @@ class XylophoneApp extends StatelessWidget {
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Expanded(
-              child: FlatButton(
-                  color: Colors.red,
-                  onPressed: () {
-                    playSound(1);
-                  }),
-            ),
-            Expanded(
-              child: FlatButton(
-                  color: Colors.orange,
-                  onPressed: () {
-                    playSound(2);
-                  }),
-            ),
-            Expanded(
-              child: FlatButton(
-                  color: Colors.yellow,
-                  onPressed: () {
-                    playSound(3);
-                  }),
-            ),
-            Expanded(
-              child: FlatButton(
-                  color: Colors.green,
-                  onPressed: () {
-                    playSound(4);
-                  }),
-            ),
-            Expanded(
-              child: FlatButton(
-                  color: Colors.teal,
-                  onPressed: () {
-                    playSound(5);
-                  }),
-            ),
-            Expanded(
-              child: FlatButton(
-                  color: Colors.blue,
-                  onPressed: () {
-                    playSound(6);
-                  }),
-            ),
-            Expanded(
-              child: FlatButton(
-                  color: Colors.purpleAccent,
-                  onPressed: () {
-                    playSound(7);
-                  }),
-            ),
+            buildKey(buttonColor: Colors.red, soundNumber: 1),
+            buildKey(buttonColor: Colors.orange, soundNumber: 2),
+            buildKey(buttonColor: Colors.yellow, soundNumber: 3),
+            buildKey(buttonColor: Colors.green, soundNumber: 4),
+            buildKey(buttonColor: Colors.teal, soundNumber: 5),
+            buildKey(buttonColor: Colors.blue, soundNumber: 6),
+            buildKey(buttonColor: Colors.purpleAccent, soundNumber: 7),
           ],
         )),
       ),
